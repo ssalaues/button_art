@@ -31,7 +31,8 @@ byte neopix_gamma[] = {
   215,218,220,223,225,228,231,233,236,239,241,244,247,249,252,255 };
 
 
-void setup() {
+void setup() 
+{
   // This is for Trinket 5V 16MHz, you can remove these three lines if you are not using a Trinket
   #if defined (__AVR_ATtiny85__)
     if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
@@ -42,7 +43,8 @@ void setup() {
   strip.show(); // Initialize all pixels to 'off'
 }
 
-void loop() {
+void loop() 
+{
   // Some example procedures showing how to display to the pixels:
   colorWipe(strip.Color(255, 0, 0), 50); // Red
   colorWipe(strip.Color(0, 255, 0), 50); // Green
@@ -62,7 +64,8 @@ void loop() {
 }
 
 // Fill the dots one after the other with a color
-void colorWipe(uint32_t c, uint8_t wait) {
+void colorWipe(uint32_t c, uint8_t wait) 
+{
   for(uint16_t i=0; i<strip.numPixels(); i++) {
     strip.setPixelColor(i, c);
     strip.show();
@@ -70,7 +73,8 @@ void colorWipe(uint32_t c, uint8_t wait) {
   }
 }
 
-void pulseWhite(uint8_t wait) {
+void pulseWhite(uint8_t wait) 
+{
   for(int j = 0; j < 256 ; j++){
       for(uint16_t i=0; i<strip.numPixels(); i++) {
           strip.setPixelColor(i, strip.Color(0,0,0, neopix_gamma[j] ) );
@@ -89,7 +93,8 @@ void pulseWhite(uint8_t wait) {
 }
 
 
-void rainbowFade2White(uint8_t wait, int rainbowLoops, int whiteLoops) {
+void rainbowFade2White(uint8_t wait, int rainbowLoops, int whiteLoops) 
+{
   float fadeMax = 100.0;
   int fadeVal = 0;
   uint32_t wheelVal;
@@ -132,7 +137,8 @@ void rainbowFade2White(uint8_t wait, int rainbowLoops, int whiteLoops) {
   delay(500);
 
 
-  for(int k = 0 ; k < whiteLoops ; k ++){
+  for(int k = 0 ; k < whiteLoops ; k ++)
+{
 
     for(int j = 0; j < 256 ; j++){
 
